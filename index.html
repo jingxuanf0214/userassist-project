@@ -97,7 +97,7 @@
   </section>
 
   <!-- Teaser banner (image) -->
-  <section class="hero teaser">
+  <!-- <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body has-text-centered">
         <img src="static/images/teaser_frame.png" alt="USERASSIST teaser" style="max-width:100%;height:auto;border-radius:12px;" />
@@ -106,7 +106,7 @@
         </h2>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Abstract -->
   <section class="section hero is-light">
@@ -129,17 +129,17 @@
     <div class="container is-max-desktop">
 
       <!-- 1) Dataset examples + explainer -->
-      <h3 class="title is-4">UserAssist: dataset setup</h3>
+      <h3 class="title is-4">UserAssist dataset</h3>
       <div class="columns is-vcentered is-variable is-6">
         <div class="column">
           <figure class="image">
             <img src="static/images/userassist_test.png" alt="USERASSIST dataset examples showing symbol→value and object→color subsets" />
           </figure>
-          <p class="has-text-centered is-size-6">Example conversations from both subsets</p>
+          <!-- <p class="has-text-centered is-size-6">Example conversations from both subsets</p> -->
         </div>
       </div>
       <p class="content">
-        <strong>UserAssist</strong> is an 8k multi‑turn synthetic dataset designed to isolate how models weigh user‑provided vs. assistant‑generated context. It contains two balanced subsets—symbol→value and object→color—where the user and assistant provide conflicting assignments. By asking the model to resolve the conflict in a follow‑up turn, we can estimate its bias toward the user or the assistant.
+        <strong>UserAssist</strong> is an 8k multi‑turn synthetic dataset designed to isolate how models weigh user‑provided vs. assistant‑generated information in multi-turn conversation history. It contains two balanced subsets—symbol→value and object→color—where the user and assistant provide conflicting assignments. By asking the model to resolve the conflict in a follow‑up turn, we can estimate its bias toward the user or the assistant.
       </p>
 
       <hr/>
