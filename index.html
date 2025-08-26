@@ -132,7 +132,7 @@
       <h3 class="title is-4 has-text-centered">The Concept of User-Assistant Bias</h3>
       <div class="content">
         <p>
-          Real conversations with LLMs are multi-turn, and each new model generation depends on both what the user said and what the assistant previously wrote. When a model overweights its own history, it can double-down on mistakes; when it overweights the user, it can become overly agreeable and reinforce errors—both risky in high-stakes tasks. Prior reports of "stubborn" vs. "sycophantic" behavior are often confounded by how much information sits on each side of the chat history. Therefore, we create a novel concept-<strong>user–assistant bias</strong>: the degree to which a model's next response is pulled toward the user's words versus its own prior messages when given balanced, conflicting context. Measuring and reducing this bias is key to building assistants that collaborate, correct, and reason responsibly.
+          Real conversations with LLMs are multi-turn, and each new model generation depends on both what the user said and what the assistant previously wrote. When a model overweights its own history, it can double-down on mistakes; when it overweights the user, it can become overly agreeable and reinforce errors—both risky in high-stakes tasks. Prior reports of "stubborn" vs. "sycophantic" behavior are often confounded by how much information sits on each side of the chat history. Therefore, we create a novel concept—<strong>user–assistant bias</strong>: the degree to which a model's next response is pulled toward the user's words versus its own prior messages when given balanced, conflicting context. Measuring and reducing this bias is key to building assistants that collaborate, correct, and reason responsibly.
         </p>
       </div>
 
@@ -177,7 +177,7 @@
       <hr/>
 
       <!-- 2) Benchmarking results: commercial models -->
-      <h3 class="title is-4">Benchmarking Commercial Models</h3>
+      <h3 class="title is-4">User-Assistant Bias in Commercial Models</h3>
       <div class="columns is-centered">
         <div class="column is-8">
           <figure class="image">
@@ -191,17 +191,17 @@
       </p>
 
       <!-- 3) Benchmarking results: open-weight models -->
-      <h3 class="title is-4">Benchmarking Open-Weight Models</h3>
+      <h3 class="title is-4">User-Assistant Bias in Open-Weight Models</h3>
       <div class="columns is-centered">
         <div class="column is-8">
           <figure class="image">
-            <img src="static/images/hf_generation.png" alt="User–assistant bias in open‑weight models" />
+            <img src="static/images/hf.png" alt="User–assistant bias in open‑weight models" />
           </figure>
           <p class="has-text-centered is-size-6">Open‑weight models</p>
         </div>
       </div>
       <p class="content">
-        We also evaluate 26 open-weight models. In these models, instruction‑tuned variants display strong user bias, whereas reasoning or reasoning‑distilled models exhibit weak user bias.
+        Across 26 open-weight models, both log-probability and generation metrics tell the same story (strong correlation across subsets): base models are neutral, but post-training introduces bias. In particular, instruction-tuned variants across families consistently tilt toward the user. By contrast, reasoning-trace–distilled versions and dedicated reasoning models show only weak user bias, shifting back toward near-neutral behavior.
       </p>
 
       <hr/>
@@ -212,7 +212,7 @@
         <img src="static/images/posttraining_recipes.png" alt="Effect of preference alignment vs. reasoning traces on user–assistant bias" />
       </figure>
       <p class="content">
-        Controlled fine‑tuning reveals which post‑training ingredients drive bias. Adding <em>human‑preference alignment</em> objectives increases user bias, while training on <em>chain‑of‑thought reasoning traces</em> reduces it. These shifts appear across model families, indicating the effect is largely architectural‑agnostic.
+        To pinpoint what <strong>post-training recipes</strong> drive shifts in user–assistant bias, we ran controlled fine-tuning from the <strong>same model instances</strong>—Llama-3.1-8B-Instruct and Qwen2.5-7B-Instruct—and measured bias via <strong>log-ratio</strong> and <strong>generation</strong> metrics. <strong>DPO</strong> on human-preference datasets (e.g., <strong>HH-RLHF</strong>, <strong>UltraFeedback</strong>) <strong>consistently increases user bias</strong>, while <strong>SFT on reasoning corpora</strong> (e.g., <strong>Open-Platypus</strong>, <strong>LIMO</strong>, <strong>s1K-1.1</strong>) <strong>reduces</strong> it. A targeted <strong>sycophancy-reduction</strong> dataset yields only <strong>marginal</strong> reduction in user bias, suggesting our user–assistant bias is <strong>distinct</strong> from standard sycophancy measures.
       </p>
 
       <hr/>
