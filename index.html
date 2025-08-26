@@ -148,15 +148,15 @@
         
         <p><strong>test</strong>: 2,988 conversations for standard evaluation.</p>
         <ul>
-          <li>1,946 Symbol–Value dialogues with 1–5 turns (randomly sampled).</li>
-          <li>1,042 Object–Color dialogues with 1–3 turns (randomly sampled).</li>
+          <li>1,946 Symbol–Value dialogues with 1–5 turns.</li>
+          <li>1,042 Object–Color dialogues with 1–3 turns.</li>
         </ul>
         <p>Each dialogue ends with a question about the entity's attribute appearing in the conversation.</p>
         
         <p><strong>train</strong>: 5,016 conversations for fine-tuning (maintains the same subset ratio as test).</p>
         <ul>
-          <li>3,001 Symbol–Value dialogues with 1–5 turns (randomly sampled).</li>
-          <li>2,015 Object–Color dialogues with 1–3 turns (randomly sampled).</li>
+          <li>3,001 Symbol–Value dialogues with 1–5 turns.</li>
+          <li>2,015 Object–Color dialogues with 1–3 turns.</li>
         </ul>
         
         <p>
@@ -166,16 +166,24 @@
 
       <hr/>
 
-      <!-- 2) Benchmarking results: commercial & open‑weight side‑by‑side -->
-      <h3 class="title is-4">Benchmarking across 52 LLMs</h3>
-      <div class="columns is-vcentered is-variable is-6">
-        <div class="column">
+      <!-- 2) Benchmarking results: commercial models -->
+      <h3 class="title is-4">Benchmarking Commercial Models</h3>
+      <div class="columns is-centered">
+        <div class="column is-8">
           <figure class="image">
             <img src="static/images/api_generation_average_bias.png" alt="User–assistant bias in commercial models" />
           </figure>
           <p class="has-text-centered is-size-6">Commercial models</p>
         </div>
-        <div class="column">
+      </div>
+      <p class="content">
+        Earlier series—Claude-3 and GPT-4o/4 variants—show strong user-leaning bias, peaking around +0.8 (notably GPT-4o and GPT-4.1), while more recent variants—Claude-4 and GPT-5—show little to no bias. Models from DeepSeek, Google, and xAI are broadly balanced. Across vendors, reasoning-focused variants (e.g., Claude 3.7 Sonnet, Claude 4 Sonnet, o1 preview, o4 mini, DeepSeek Reasoner, Gemini 2.5 Flash Preview, Grok 3 Mini) exhibit minimal bias.
+      </p>
+
+      <!-- 3) Benchmarking results: open-weight models -->
+      <h3 class="title is-4">Benchmarking Open-Weight Models</h3>
+      <div class="columns is-centered">
+        <div class="column is-8">
           <figure class="image">
             <img src="static/images/hf_generation.png" alt="User–assistant bias in open‑weight models" />
           </figure>
@@ -183,7 +191,7 @@
         </div>
       </div>
       <p class="content">
-        Using <strong>UserAssist‑test</strong>, we benchmark 52 LLMs (26 commercial, 26 open‑weight). Commercial systems show varied but generally user‑leaning behavior. In open‑weight models, instruction‑tuned variants display strong user bias, whereas reasoning or reasoning‑distilled models exhibit weak user bias.
+        We also evaluate 26 open-weight models. In these models, instruction‑tuned variants display strong user bias, whereas reasoning or reasoning‑distilled models exhibit weak user bias.
       </p>
 
       <hr/>
@@ -215,7 +223,15 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>Coming soon</code></pre>
+      <pre><code>@misc{pan2025userassistantbiasllms,
+      title={User-Assistant Bias in LLMs}, 
+      author={Xu Pan and Jingxuan Fan and Zidi Xiong and Ely Hahami and Jorin Overwiening and Ziqian Xie},
+      year={2025},
+      eprint={2508.15815},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2508.15815}, 
+}</code></pre>
     </div>
   </section>
 
