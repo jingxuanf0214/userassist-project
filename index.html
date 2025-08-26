@@ -130,6 +130,11 @@
 
       <!-- 1) Dataset examples + explainer -->
       <h3 class="title is-4 has-text-centered">Introducing <strong>UserAssist</strong></h3>
+      <div class="content">
+        <p>
+          USERASSIST is a synthetic multi-turn dialogue dataset for probing user–assistant bias. It consists of two subsets, <strong>Symbol–Value</strong> and <strong>Object–Color</strong>, which capture the bias in an information symmetric and symbolic manner: in the first, the user and assistant alternate assigning numeric values (0–100) to letter variables; in the second, they alternate attributing colors to objects. In every conversation the user and assistant <strong>disagree</strong> on the same entities, creating conflicting information across windows. To eliminate position effects, the dataset is <strong>balanced</strong> so that an equal number of conversations end with the user's assignment and the assistant's assignment. Each conversation is followed by a query asking for the entity's attribute, yielding a clean evaluation point. In total, USERASSIST includes <strong>8,004</strong> conversations.
+        </p>
+      </div>
       <div class="columns is-vcentered is-variable is-6">
         <div class="column">
           <figure class="image">
@@ -139,10 +144,6 @@
         </div>
       </div>
       <div class="content">
-        <p>
-          USERASSIST is a synthetic multi-turn dialogue dataset for probing user–assistant bias. It consists of two subsets, <strong>Symbol–Value</strong> and <strong>Object–Color</strong>, which capture the bias in a controlled, symbolic manner: in the first, the user and assistant alternate assigning numeric values (0–100) to letter variables; in the second, they alternate attributing colors to objects. In every conversation the user and assistant <strong>disagree</strong> on the same entities, creating conflicting information across windows. To eliminate position effects, the dataset is <strong>balanced</strong> so that an equal number of conversations end with the user's assignment and the assistant's assignment. Each conversation is followed by a query asking for the entity's attribute, yielding a clean evaluation point. In total, USERASSIST includes <strong>8,004</strong> conversations.
-        </p>
-        
         <p>All the conversations are divided into two splits: <strong>train</strong> and <strong>test</strong>.</p>
         
         <p><strong>test</strong>: 2,988 conversations for standard evaluation.</p>
