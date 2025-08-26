@@ -201,18 +201,18 @@
         </div>
       </div>
       <p class="content">
-        Across 26 open-weight models, both log-probability and generation metrics tell the same story (strong correlation across subsets): base models are neutral, but post-training introduces bias. In particular, instruction-tuned variants across families consistently tilt toward the user. By contrast, reasoning-trace–distilled versions and dedicated reasoning models show only weak user bias, shifting back toward near-neutral behavior.
+        Across 26 open-weight models, both log-probability and generation metrics tell the same story: base models are neutral, but post-training introduces bias. In particular, instruction-tuned variants across families consistently tilt toward the user. By contrast, reasoning-trace–distilled versions and reasoning models show only weak user bias, shifting back toward near-neutral behavior.
       </p>
 
       <hr/>
 
       <!-- 3) Effects of post‑training recipe -->
-      <h3 class="title is-4">Effect of post‑training recipes</h3>
+      <h3 class="title is-4">Effect of post‑training on user-assistant bias</h3>
       <figure class="image">
         <img src="static/images/posttraining_recipes.png" alt="Effect of preference alignment vs. reasoning traces on user–assistant bias" />
       </figure>
       <p class="content">
-        To pinpoint what <strong>post-training recipes</strong> drive shifts in user–assistant bias, we ran controlled fine-tuning from the <strong>same model instances</strong>—Llama-3.1-8B-Instruct and Qwen2.5-7B-Instruct—and measured bias via <strong>log-ratio</strong> and <strong>generation</strong> metrics. <strong>DPO</strong> on human-preference datasets (e.g., <strong>HH-RLHF</strong>, <strong>UltraFeedback</strong>) <strong>consistently increases user bias</strong>, while <strong>SFT on reasoning corpora</strong> (e.g., <strong>Open-Platypus</strong>, <strong>LIMO</strong>, <strong>s1K-1.1</strong>) <strong>reduces</strong> it. A targeted <strong>sycophancy-reduction</strong> dataset yields only <strong>marginal</strong> reduction in user bias, suggesting our user–assistant bias is <strong>distinct</strong> from standard sycophancy measures.
+        To pinpoint what post-training recipes drive shifts in user–assistant bias, we run controlled fine-tuning from the same model instances—Llama-3.1-8B-Instruct and Qwen2.5-7B-Instruct—and measured bias via log-ratio and generation metrics. DPO on human-preference datasets (e.g., <strong>HH-RLHF</strong>, <strong>UltraFeedback</strong>) consistently increases user bias, while SFT on reasoning corpora (e.g., <strong>Open-Platypus</strong>, <strong>LIMO</strong>, <strong>s1K-1.1</strong>) reduces it. A targeted sycophancy-reduction dataset yields only marginal reduction in user bias, suggesting our user–assistant bias is distinct from standard sycophancy measures.
       </p>
 
       <hr/>
@@ -220,10 +220,16 @@
       <!-- 4) Bidirectional control with DPO -->
       <h3 class="title is-4">Controlling bias with DPO</h3>
       <figure class="image">
+        <img src="static/images/realistic_conv.png" alt="Realistic dataset examples showing multi-turn conversations and debates" />
+      </figure>
+      <p class="content">
+        The realistic conversation dataset is synthesized from <strong>PhilPapers 2020 Survey</strong> subset of the sycophancy evaluation dataset, capturing realistic multi-turn debates over common philosophical topics.
+      </p>
+      <figure class="image">
         <img src="static/images/dpo_bidirectional.png" alt="Direct Preference Optimization (DPO) bidirectionally adjusts user–assistant bias and generalizes to realistic debates" />
       </figure>
       <p class="content">
-        Finally, <strong>DPO</strong> on <strong>UserAssist‑train</strong> enables bidirectional control: the same base model can be nudged toward either more user‑ or assistant‑favoring behavior. The steering carries over to in‑domain conversations and to realistic out‑of‑domain debates, suggesting a practical detect‑and‑control path for this bias.
+        <strong>DPO</strong> on <strong>UserAssist‑train</strong> enables bidirectional control: the same starting model can be finetuned toward either more user‑ or assistant‑favoring behavior. The bidirectional effects generalize well to in‑domain conversations and to realistic out‑of‑domain debates.  Despite the simplicity of our synthetic datasets, they provide robust control handles for conversational stance in complex, opinionated interactions.
       </p>
 
     </div>
